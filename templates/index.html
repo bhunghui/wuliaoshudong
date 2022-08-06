@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src={{ url_for('static',filename='bootstrap/js/jquery.min.js') }}></script>
+    <script type="text/javascript" src={{ url_for('static',filename='bootstrap/js/bootstrap.js') }}></script>
+    <link rel="stylesheet" href={{ url_for('static',filename='bootstrap/css/bootstrap.css') }}>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/div.css') }}">
+    <title>首页</title>
+</head>
+<body>
+<nav class="navbar navbar-default" style="padding-left: 200px">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" style="color: #3c763d">无聊树洞</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/">首页<span class="sr-only">(current)</span></a></li>
+        <li><a href="{{ url_for('post_qa') }}">发现</a></li>
+          <li><a href="{{ url_for('post_qa') }}">提问</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left" action="{{ url_for("search") }} " method="get">
+        <div class="form-group">
+          <input name="search" type="text" class="form-control" placeholder="你想要听什么？" style="width: 300px; margin-left: 50px">
+        </div>
+        <button type="submit" class="btn btn-default" style="background-color: #3c763d;color: snow">搜索</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+          {% if session.get("user_name") %}
+            <li><a href="/login">{{ session.get("user_name") }}</a></li>
+          <li><a href="/logout">注销</a></li>
+          {% else %}
+        <li><a href="/login">登录</a></li>
+          {% endif  %}
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+    <script type="text/javascript">
+
+    </script>
+</nav>
+{% block body %}
+
+{% endblock %}
+</body>
+</html>

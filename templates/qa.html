@@ -1,0 +1,9 @@
+{% extends 'index.html'%}
+
+{% block body %}
+<form method="POST" action="/qa" >
+    <div style="text-align: center"><input class="ui-spinner-input" type="text" style="margin-bottom: 8px; height: 40px; width: 500px" name="title"></div>
+    <div style="text-align: center"><input class="ui-spinner-input" type="text" style="margin-bottom: 8px; height: 500px; width: 800px" name="content"></div>
+    <div style="text-align: center"><button type="submit"  style="color: snow; background-color: #3c763d; width: 360px; height: 35px">提问</button></div>
+    </form>
+{% endblock %}

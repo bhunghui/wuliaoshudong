@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block body %}
+    <form method="POST" action="/login" >
+    <div style="text-align: center"><input class="form" type="text"  value="请输入用户名" style="margin-bottom: 8px; height: 40px; text-align:center; width: 400px" name="username"></div>
+    <div style="text-align: center"><input class="form" type="password" name="passwd" value="请输入密码" style="margin-bottom: 8px; height: 40px; text-align:center; width: 400px"></div>
+    <div style="text-align: center"><button type="submit"  style="color: snow; background-color: #3c763d; width: 360px; height: 35px">登录</button></div>
+    </form>
+    <div style="text-align: center"><button id="register" type="submit"  style="margin-top: 2px; color: snow; background-color: #3c763d; width: 360px; height: 35px">注册</button></div>
+    <script>
+    var register = document.getElementById('register')
+    register.onclick = function (e){
+        window.location.href= " {{ url_for('register_judge')}} "
+    }
+    </script>
+{% endblock %}

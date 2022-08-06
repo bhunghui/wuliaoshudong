@@ -1,0 +1,30 @@
+{% extends  'index.html'%}
+{% block body %}
+
+    <div class="card" style="padding-left: 0px; padding-right: 10px; width: 700px; margin-left: 350px; text-align:left; background-color: snow ">
+        <ul>
+            <h2>{{ question.title }} </h2>
+        </ul>
+        <ul>
+            <h4>{{ question.content }}</h4>
+        </ul>
+    </div>
+    <div class="" style="padding-right: 10px; padding-top: 0px; padding-left: 10px; width: 700px; margin-left: 350px; text-align:left; background-color: snow ">
+        <h3>评论:
+        </h3>
+    </div>
+{% for comment in question.comments %}
+    <div class="card" style="padding-right: 10px; padding-top: 0px; padding-left: 10px; width: 700px; margin-left: 350px; text-align:left; background-color: snow ">
+        <h2>{{ comment.author_name }}:</h2>
+        <h4>
+            {{ comment.content }}
+        </h4>
+    </div>
+{% endfor %}
+<div class="" style="padding-right: 10px; padding-top: 0px; padding-left: 10px; width: 700px; margin-left: 350px; text-align:left; background-color: snow ">
+<form method="POST" action="{{ url_for('comment', question_id=question.id) }}" >
+    <div style="padding-left: 5px; padding-right: 5px; text-align: center"><input class="ui-spinner-input" type="text" style="margin-bottom: 8px; height: 70px; width: 600px" name="content"></div>
+    <div style="text-align: center"><button type="submit"  style="color: snow; background-color: #3c763d; width: 360px; height: 35px">评论</button></div>
+    </form>
+</div>
+{% endblock %}

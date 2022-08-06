@@ -1,0 +1,7 @@
+{% extends 'index.html' %}
+{% block body %}
+<form method="POST" action="{{ url_for('comment', question_id=question_id) }}" >
+    <div style="text-align: center"><input class="ui-spinner-input" type="text" style="margin-bottom: 8px; height: 500px; width: 800px" name="content"></div>
+    <div style="text-align: center"><button type="submit"  style="color: snow; background-color: #3c763d; width: 360px; height: 35px">评论</button></div>
+    </form>
+{% endblock %}
