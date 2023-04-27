@@ -80,15 +80,12 @@ def search():
 
 def is_login():
     user_name = session.get('user_name')
-    if user_name:
-        user = User.query.filter_by(name=user_name).first()
-        if user:
-            return user
-        else:
-            return False
-    else:
+    if not user_name:
         return False
-
+    user = User.query.filter_by(name=user_name).first()
+    if not user:
+        return False
+    return user
 
 @app.route('/qa/comment/<int:question_id>', methods=['GET', 'POST'])
 def comment(question_id):
